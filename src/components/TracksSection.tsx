@@ -27,8 +27,8 @@ export function TracksSection() {
   };
 
   return (
-    <section id="tracks" className="relative py-20 sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="tracks" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <p className="mb-3 text-xs font-semibold tracking-[0.16em] uppercase text-[#B9DFFF]">
             {tracks.eyebrow}

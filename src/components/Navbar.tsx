@@ -15,7 +15,7 @@ export function Navbar({ onOpenProposal }: NavbarProps) {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 32);
+      setScrolled(y > 28);
 
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? Math.min(Math.max((y / docHeight) * 100, 0), 100) : 0;
@@ -54,12 +54,12 @@ export function Navbar({ onOpenProposal }: NavbarProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#06060F]/82 backdrop-blur-xl border-b border-[#B9DFFF]/15 shadow-[0_8px_32px_rgba(6,6,15,0.55)]'
-          : 'bg-[#06060F]/35 backdrop-blur-md border-b border-white/[0.06]'
+        scrolled || mobileMenuOpen
+          ? 'bg-[#06060F]/84 backdrop-blur-xl border-b border-[#B9DFFF]/15 shadow-[0_8px_32px_rgba(6,6,15,0.55)]'
+          : 'bg-gradient-to-b from-[#06060F]/55 via-[#06060F]/20 to-transparent border-b border-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3.5 sm:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-3.5 sm:px-8 lg:px-12">
         {/* Brand Wordmark */}
         <a
           href="#hero"
@@ -91,7 +91,7 @@ export function Navbar({ onOpenProposal }: NavbarProps) {
                   handleNavClick(item.href);
                 }}
                 className={`relative py-1 text-sm font-medium whitespace-nowrap shrink-0 transition-colors duration-200 ${
-                  isActive ? 'text-white' : 'text-[#B5C0D6] hover:text-white'
+                  isActive ? 'text-white' : 'text-[#D0DAEE] hover:text-white'
                 }`}
               >
                 {item.label}
@@ -134,7 +134,7 @@ export function Navbar({ onOpenProposal }: NavbarProps) {
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="inline-flex lg:hidden h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[#B9DFFF]/20 bg-[#10172B]/70 text-[#B9DFFF] transition-colors hover:border-[#B9DFFF]/40 hover:text-white"
+            className="inline-flex lg:hidden h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-[#B9DFFF]/25 bg-[#10172B]/70 text-[#B9DFFF] backdrop-blur-md transition-colors hover:border-[#B9DFFF]/45 hover:text-white"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -174,10 +174,12 @@ export function Navbar({ onOpenProposal }: NavbarProps) {
         </div>
       )}
 
-      {/* Scroll Progress Indicator */}
+      {/* Scroll Progress Indicator — appears cleanly once scrolling begins */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 h-[2px] w-full bg-white/[0.04]"
+        className={`absolute bottom-0 left-0 h-[2px] w-full transition-opacity duration-300 ${
+          scrolled ? 'opacity-100 bg-white/[0.04]' : 'opacity-0'
+        }`}
       >
         <div
           className="h-full bg-gradient-to-r from-[#7B2FFF] via-[#00E5CC] to-[#E58BFF] shadow-[0_0_12px_rgba(0,229,204,0.65)] transition-[width] duration-75 ease-out"

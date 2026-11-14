@@ -13,7 +13,7 @@ export function Footer({ onOpenProposal }: FooterProps) {
 
   return (
     <footer className="relative border-t border-[#B9DFFF]/15 bg-[#06060F]/85 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
+      <div className="mx-auto max-w-[1440px] px-5 py-14 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12">
           {/* Identity & Description */}
           <div className="lg:col-span-5">

@@ -17,8 +17,8 @@ export function AboutSection() {
   const { about } = EVENT_CONFIG;
 
   return (
-    <section id="about" className="relative py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="about" className="relative py-16 sm:py-24 lg:py-28">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
         <div className="frosted-panel relative rounded-3xl p-7 sm:p-10 lg:p-14">
           <SnowCap align="left" width="lg" />
           <div className="relative z-20 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 items-center">
