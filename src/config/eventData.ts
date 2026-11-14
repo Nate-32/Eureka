@@ -78,9 +78,9 @@ export const EVENT_CONFIG = {
    */
   externalQueryFormUrl: null as string | null,
   assets: {
-    heroBackground: 'assets/eureka-bg.png',
-    heroTypography: 'assets/eureka-hero-typography.png',
-    frostEdge: 'assets/eureka-frost-edge.png',
+    heroBackground: 'assets/eureka-bg.webp',
+    heroTypography: 'assets/eureka-hero-typography.webp',
+    frostEdge: 'assets/eureka-frost-edge.webp',
   },
   navLinks: [
     { id: 'about', label: 'About', href: '#about' },

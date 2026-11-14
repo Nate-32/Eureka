@@ -34,9 +34,9 @@ All editable content—including tracks, sample prize tiers, sponsor placeholder
 
 Static visual assets live in `public/assets/`:
 
-- `public/assets/eureka-bg.png`
-- `public/assets/eureka-hero-typography.png`
-- `public/assets/eureka-frost-edge.png`
+- `public/assets/eureka-bg.webp`
+- `public/assets/eureka-hero-typography.webp`
+- `public/assets/eureka-frost-edge.webp`
 
 All asset URLs resolve through `import.meta.env.BASE_URL` via `src/utils/assets.ts`, ensuring assets load properly both at root (`/`) and under GitHub Pages repository subpaths (`/<repo-name>/`).
 

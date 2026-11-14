@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowRight, Compass } from 'lucide-react';
 import { EVENT_CONFIG } from '../config/eventData';
 import { resolveAssetUrl } from '../utils/assets';
@@ -9,6 +10,16 @@ interface HeroSectionProps {
 export function HeroSection({ onOpenProposal }: HeroSectionProps) {
   const bgUrl = resolveAssetUrl(EVENT_CONFIG.assets.heroBackground);
   const typoUrl = resolveAssetUrl(EVENT_CONFIG.assets.heroTypography);
+
+  const bgImgRef = useRef<HTMLImageElement | null>(null);
+  const typoImgRef = useRef<HTMLImageElement | null>(null);
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const [typoLoaded, setTypoLoaded] = useState(false);
+
+  useEffect(() => {
+    if (bgImgRef.current?.complete) setBgLoaded(true);
+    if (typoImgRef.current?.complete) setTypoLoaded(true);
+  }, []);
 
   const scrollToSection = (selector: string) => {
     const target = document.querySelector(selector);
@@ -22,13 +33,22 @@ export function HeroSection({ onOpenProposal }: HeroSectionProps) {
       id="hero"
       className="relative min-h-[100svh] w-full overflow-hidden flex items-center pt-24 pb-20 lg:pt-28 lg:pb-24"
     >
-      {/* Full-bleed BG1.png winter aurora backdrop — right-aligned subject preserved */}
-      <div className="pointer-events-none absolute inset-0 z-0">
+      {/* Full-bleed winter aurora backdrop — right-aligned subject preserved */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[#06060F]">
         <img
+          ref={bgImgRef}
           src={bgUrl}
           alt="Winter aurora landscape with an observer looking toward luminous violet and teal ribbons over a snow-covered engineering campus"
+          width={1672}
+          height={941}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
           referrerPolicy="no-referrer"
-          className="h-full w-full object-cover object-[78%_28%] sm:object-[74%_center] lg:object-right"
+          onLoad={() => setBgLoaded(true)}
+          className={`h-full w-full object-cover object-[78%_28%] sm:object-[74%_center] lg:object-right transition-opacity duration-500 ease-out ${
+            bgLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
         />
 
         {/* Directional readability scrims keeping the right-side person and aurora vivid */}
@@ -58,13 +78,22 @@ export function HeroSection({ onOpenProposal }: HeroSectionProps) {
               <span>{EVENT_CONFIG.heroIdentityLabel}</span>
             </div>
 
-            {/* Supplied Hero_Typo.png graphic — transparent background & aspect ratio strictly preserved */}
+            {/* Supplied Hero_Typo graphic — transparent background & aspect ratio strictly preserved */}
             <div className="mb-5 w-full max-w-[460px] sm:max-w-[520px] lg:max-w-[560px]">
               <img
+                ref={typoImgRef}
                 src={typoUrl}
                 alt="EUREKA — Ignite: Discovery"
+                width={1200}
+                height={400}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
                 referrerPolicy="no-referrer"
-                className="block h-auto w-full object-contain drop-shadow-[0_12px_36px_rgba(6,6,15,0.65)]"
+                onLoad={() => setTypoLoaded(true)}
+                className={`block h-auto w-full object-contain drop-shadow-[0_12px_36px_rgba(6,6,15,0.65)] transition-opacity duration-300 ease-out ${
+                  typoLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
               />
             </div>
 
