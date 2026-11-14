@@ -42,8 +42,8 @@ export function FaqSection() {
                   isOpen ? 'border-[#B9DFFF]/35' : ''
                 }`}
               >
-                {idx === 0 && <SnowCap align="left" width="md" />}
-                <h3>
+                {idx === 0 && <SnowCap align="right" width="sm" />}
+                <h3 className="relative z-20">
                   <button
                     id={buttonId}
                     type="button"

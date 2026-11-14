@@ -48,7 +48,7 @@ export function PrizesSection({ onOpenProposal }: PrizesSectionProps) {
                 className={`frosted-panel frosted-panel-interactive rounded-3xl p-8 flex flex-col justify-between ${panelAccentClasses}`}
               >
                 {isGrand && <SnowCap align="right" width="md" />}
-                <div>
+                <div className="relative z-20">
                   <p className={`text-xs font-semibold tracking-[0.14em] uppercase mb-3 ${accentColor}`}>
                     {tier.rankLabel}
                   </p>

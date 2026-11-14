@@ -80,6 +80,7 @@ export const EVENT_CONFIG = {
   assets: {
     heroBackground: 'assets/eureka-bg.png',
     heroTypography: 'assets/eureka-hero-typography.png',
+    frostEdge: 'assets/eureka-frost-edge.png',
   },
   navLinks: [
     { id: 'about', label: 'About', href: '#about' },

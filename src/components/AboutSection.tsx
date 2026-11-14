@@ -21,7 +21,7 @@ export function AboutSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="frosted-panel relative rounded-3xl p-7 sm:p-10 lg:p-14">
           <SnowCap align="left" width="lg" />
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 items-center">
+          <div className="relative z-20 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 items-center">
             {/* Left Column: Core Philosophy */}
             <div className="lg:col-span-7">
               <p className="mb-3 text-xs font-semibold tracking-[0.16em] uppercase text-[#00E5CC]">

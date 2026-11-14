@@ -52,7 +52,7 @@ export function TracksSection() {
             >
               {idx === 0 && <SnowCap align="left" width="sm" />}
               {idx === 2 && <SnowCap align="right" width="sm" />}
-              <div>
+              <div className="relative z-20">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl border border-[#B9DFFF]/25 bg-[#10172B]/80 shadow-[0_0_20px_rgba(123,47,255,0.16)]">
                   <TrackIcon icon={track.icon} />
                 </div>

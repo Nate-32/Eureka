@@ -82,10 +82,10 @@ export function ContactSection() {
                   className="frosted-panel frosted-panel-interactive rounded-2xl p-6 flex items-center gap-4"
                 >
                   {idx === 0 && <SnowCap align="left" width="sm" />}
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#B9DFFF]/20 bg-[#10172B]/80">
+                  <div className="relative z-20 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#B9DFFF]/20 bg-[#10172B]/80">
                     <ChannelIcon icon={channel.icon} />
                   </div>
-                  <div className="min-w-0">
+                  <div className="relative z-20 min-w-0">
                     <p className="text-xs font-medium text-[#00E5CC]">{channel.role}</p>
                     <p className="text-sm font-semibold text-white mt-0.5">{channel.label}</p>
                     {channel.href ? (
@@ -116,6 +116,7 @@ export function ContactSection() {
           <div className="lg:col-span-7">
             <div className="frosted-panel h-full rounded-3xl p-7 sm:p-9">
               <SnowCap align="right" width="md" />
+              <div className="relative z-20 h-full">
               {submitted ? (
                 <div className="flex h-full flex-col items-start justify-center py-6">
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-[#00E5CC]/35 bg-[#00E5CC]/15 text-[#00E5CC]">
@@ -248,6 +249,7 @@ export function ContactSection() {
                   </div>
                 </form>
               )}
+              </div>
             </div>
           </div>
         </div>

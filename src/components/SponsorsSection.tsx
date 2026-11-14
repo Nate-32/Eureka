@@ -61,7 +61,7 @@ export function SponsorsSection() {
                 className={`frosted-panel rounded-3xl p-6 sm:p-8 ${tierAccent}`}
               >
                 {isPlatinum && <SnowCap align="left" width="lg" />}
-                <div className="mb-6 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between border-b border-[#B9DFFF]/10 pb-4">
+                <div className="relative z-20 mb-6 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between border-b border-[#B9DFFF]/10 pb-4">
                   <div>
                     <h3 className={`font-display text-lg font-bold tracking-wide uppercase ${titleColor}`}>
                       {tier.tierName}
