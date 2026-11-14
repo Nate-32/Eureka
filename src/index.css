@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --eureka-bg: #06060F;
+    --eureka-navy: #10172B;
+    --eureka-panel: rgba(190, 215, 255, 0.075);
+    --eureka-ice: #B9DFFF;
+    --eureka-violet: #7B2FFF;
+    --eureka-pink: #E58BFF;
+    --eureka-teal: #00E5CC;
+    --eureka-amber: #FFB36B;
+    --eureka-text: #FFFFFF;
+    --eureka-muted: #B5C0D6;
+  }
+
+  html {
+    background-color: #06060F;
+    color: #FFFFFF;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono-tabular {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #B9DFFF;
+    outline-offset: 3px;
+  }
+}
+
+/* ============================================================================
+   ATMOSPHERIC WINTER AURORA BACKDROP
+   ============================================================================ */
+.aurora-sky-layer {
+  position: fixed;
+  inset: -15%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 68% 46% at 18% 18%, rgba(123, 47, 255, 0.22) 0%, transparent 62%),
+    radial-gradient(ellipse 58% 42% at 78% 26%, rgba(229, 139, 255, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 52% 38% at 54% 68%, rgba(0, 229, 204, 0.08) 0%, transparent 58%),
+    radial-gradient(ellipse 46% 36% at 84% 82%, rgba(123, 47, 255, 0.12) 0%, transparent 60%);
+  filter: blur(72px);
+  animation: auroraDrift 24s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(-1.5%, 1.2%, 0) scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(1.5%, -1%, 0) scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+/* ============================================================================
+   FROSTED GLASS & FROZEN ACRYLIC DESIGN SYSTEM
+   ============================================================================ */
+.frosted-panel {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(190, 215, 255, 0.09) 0%,
+    rgba(16, 23, 43, 0.56) 55%,
+    rgba(123, 47, 255, 0.05) 100%
+  );
+  backdrop-filter: blur(18px) saturate(135%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(185, 223, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16),
+    inset 0 0 24px rgba(185, 223, 255, 0.04),
+    0 18px 46px rgba(4, 6, 18, 0.55),
+    0 0 32px rgba(123, 47, 255, 0.08);
+}
+
+.frosted-panel-interactive {
+  transition:
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.frosted-panel-interactive:hover {
+  transform: translateY(-4px);
+  border-color: rgba(185, 223, 255, 0.32);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+    inset 0 0 28px rgba(185, 223, 255, 0.07),
+    0 22px 54px rgba(4, 6, 18, 0.65),
+    0 0 36px rgba(229, 139, 255, 0.12);
+}
+
+/* Subtle mouse-tracked ice refraction highlight */
+.frost-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(185, 223, 255, 0.12),
+    rgba(229, 139, 255, 0.05) 35%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+}
+
+.frost-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================================
+   RESTRAINED SNOW & ICE EDGE DETAILING (CSS PSEUDO-ELEMENTS)
+   Applied selectively so cards feel cold-kissed without visual clutter.
+   ============================================================================ */
+
+/* Delicate frost accumulation along upper rim */
+.frost-rim-top::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 14%;
+  right: 22%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(225, 242, 255, 0.55) 24%,
+    rgba(255, 255, 255, 0.85) 48%,
+    rgba(185, 223, 255, 0.45) 75%,
+    transparent 100%
+  );
+  box-shadow: 0 2px 10px rgba(185, 223, 255, 0.35);
+  pointer-events: none;
+}
+
+/* Subtle frost drift along top-right corner */
+.frost-corner-right {
+  overflow: hidden;
+}
+
+.frost-corner-right::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(
+    circle at 100% 0%,
+    rgba(215, 238, 255, 0.14) 0%,
+    rgba(185, 223, 255, 0.05) 38%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Subtle lower ice condensation gleam */
+.frost-rim-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 24%;
+  right: 24%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(185, 223, 255, 0.48) 50%,
+    transparent 100%
+  );
+  box-shadow: 0 -1px 8px rgba(0, 229, 204, 0.22);
+  pointer-events: none;
+}
+
+/* ============================================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .aurora-sky-layer {
+    animation: none !important;
+  }
+
+  .frosted-panel-interactive,
+  .frosted-panel-interactive:hover {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "EUREKA — Ignite: Discovery",
+  "description": "A winter aurora engineering and innovation event celebrating breakthroughs, research, experimentation, and working prototypes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
